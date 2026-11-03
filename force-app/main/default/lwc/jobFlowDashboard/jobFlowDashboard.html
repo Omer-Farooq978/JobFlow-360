@@ -1,0 +1,131 @@
+<template>
+    <div class="dashboard">
+
+        <header class="hero">
+            <div>
+                <p class="eyebrow">JOBFLOW 360 | RECRUITMENT ANALYTICS</p>
+                <h1>Application Insights</h1>
+                <p class="hero-text">
+                    Track applications, monitor progress and manage follow-ups.
+                </p>
+            </div>
+            <lightning-button-icon
+                icon-name="utility:refresh"
+                alternative-text="Refresh"
+                title="Refresh dashboard"
+                onclick={handleRefresh}
+                variant="border-filled">
+            </lightning-button-icon>
+        </header>
+
+        <template lwc:if={error}>
+            <div class="error-message">
+                Unable to load dashboard data. Please refresh.
+            </div>
+        </template>
+
+        <template lwc:if={applications}>
+
+            <section class="kpi-grid">
+
+                <article class="kpi-card navy">
+                    <span>Total Applications</span>
+                    <strong>{totalApplications}</strong>
+                    <small>All loaded applications</small>
+                </article>
+
+                <article class="kpi-card green">
+                    <span>Offers</span>
+                    <strong>{offerCount}</strong>
+                    <small>Offer stage</small>
+                </article>
+
+                <article class="kpi-card blue">
+                    <span>Interviews</span>
+                    <strong>{interviewCount}</strong>
+                    <small>Interview stage</small>
+                </article>
+
+                <article class="kpi-card purple">
+                    <span>In Progress</span>
+                    <strong>{inProgressCount}</strong>
+                    <small>Applied and Screening</small>
+                </article>
+
+                <article class="kpi-card orange">
+                    <span>Overdue Follow-ups</span>
+                    <strong>{overdueCount}</strong>
+                    <small>Follow-up date passed</small>
+                </article>
+
+            </section>
+
+            <section class="content-grid">
+
+                <article class="panel">
+                    <h2>Application Status</h2>
+                    <p class="panel-subtitle">
+                        Distribution across recruitment stages
+                    </p>
+
+                    <template for:each={statusStats} for:item="stat">
+                        <div class="status-row" key={stat.label}>
+                            <div class="status-info">
+                                <span>{stat.label}</span>
+                                <strong>{stat.count}</strong>
+                            </div>
+                            <div class="progress-track">
+                                <div
+                                    class="progress-fill"
+                                    style={stat.style}>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </article>
+
+                <article class="panel">
+                    <h2>Overdue Follow-ups</h2>
+                    <p class="panel-subtitle">
+                        Applications requiring attention
+                    </p>
+
+                    <template lwc:if={overdueApplications.length}>
+                        <template
+                            for:each={overdueApplications}
+                            for:item="app">
+                            <div class="followup-row" key={app.Id}>
+                                <div>
+                                    <strong>{app.Name}</strong>
+                                    <p>Due: {app.Follow_up_Date__c}</p>
+                                </div>
+                                <span class="overdue-tag">Overdue</span>
+                            </div>
+                        </template>
+                    </template>
+
+                    <template lwc:else>
+                        <div class="empty-state">
+                            <span class="empty-icon">✓</span>
+                            <h3>All caught up!</h3>
+                            <p>No overdue follow-ups found.</p>
+                        </div>
+                    </template>
+                </article>
+
+            </section>
+
+        </template>
+
+        <template lwc:else>
+            <template lwc:if={loading}>
+                <div class="loading-state">Loading dashboard...</div>
+            </template>
+        </template>
+
+        <footer class="footer">
+            JobFlow 360 · Application Management System
+        </footer>
+
+    </div>
+</template>

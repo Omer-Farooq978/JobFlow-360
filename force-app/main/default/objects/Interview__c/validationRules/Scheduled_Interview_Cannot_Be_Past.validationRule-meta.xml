@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scheduled_Interview_Cannot_Be_Past</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Interview_Status__c, &quot;Scheduled&quot;),
+    NOT(ISBLANK(Interview_Date__c)),
+    Interview_Date__c &lt; NOW()
+)</errorConditionFormula>
+    <errorDisplayField>Interview_Date__c</errorDisplayField>
+    <errorMessage>A scheduled interview must have a future date and time.</errorMessage>
+</ValidationRule>

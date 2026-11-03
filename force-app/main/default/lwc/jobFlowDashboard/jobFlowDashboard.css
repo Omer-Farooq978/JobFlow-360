@@ -1,0 +1,271 @@
+
+:host {
+    display: block;
+    font-family: Arial, sans-serif;
+    color: #172b4d;
+}
+
+.dashboard {
+    background: #f3f6fb;
+    padding: 24px;
+    border-radius: 12px;
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(120deg, #102b50, #245b91);
+    color: white;
+    padding: 30px;
+    border-radius: 14px;
+    margin-bottom: 24px;
+}
+
+.eyebrow {
+    color: #9dc8f2;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 8px 0;
+}
+
+.hero-text {
+    color: #d7e6f7;
+    margin: 0;
+}
+
+/* KPI cards */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.kpi-card {
+    padding: 22px;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.kpi-card span {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.kpi-card strong {
+    display: block;
+    font-size: 34px;
+    margin: 12px 0 6px;
+}
+
+.kpi-card small {
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+.navy {
+    background: linear-gradient(135deg, #17365d, #285b91);
+}
+
+.green {
+    background: linear-gradient(135deg, #16845b, #26a879);
+}
+
+.blue {
+    background: linear-gradient(135deg, #1769aa, #3899df);
+}
+
+.purple {
+    background: linear-gradient(135deg, #6845a5, #936bd0);
+}
+
+.orange {
+    background: linear-gradient(135deg, #c46a20, #ed963f);
+}
+
+/* Main panels */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.panel {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 3px 12px rgba(16, 43, 80, 0.05);
+}
+
+.panel h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #163d68;
+    margin: 0 0 8px;
+}
+
+.panel-subtitle {
+    color: #64748b;
+    font-size: 13px;
+    margin: 0 0 24px;
+}
+
+/* Status progress */
+.status-row {
+    margin-bottom: 20px;
+}
+
+.status-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 9px;
+    font-size: 13px;
+}
+
+.status-info strong {
+    color: #163d68;
+}
+
+.progress-track {
+    height: 9px;
+    background: #e9eef5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2878d0, #55a5f5);
+    border-radius: 20px;
+}
+
+/* Follow-ups */
+.followup-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 0;
+    border-bottom: 1px solid #edf1f5;
+}
+
+.followup-row strong {
+    color: #263e5c;
+    font-size: 14px;
+}
+
+.followup-row p {
+    color: #718096;
+    font-size: 12px;
+    margin: 6px 0 0;
+}
+
+.overdue-tag {
+    background: #fff0ed;
+    color: #c0392b;
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 35px 15px;
+    background: #f7fafc;
+    border-radius: 10px;
+    color: #64748b;
+}
+
+.empty-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #e2f5ec;
+    color: #16845b;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.empty-state h3 {
+    color: #245b45;
+    margin: 0 0 7px;
+}
+
+.empty-state p {
+    font-size: 13px;
+    margin: 0;
+}
+
+.error-message {
+    background: #fff1f0;
+    color: #c0392b;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.loading-state {
+    background: white;
+    text-align: center;
+    padding: 35px;
+    border-radius: 12px;
+    color: #64748b;
+}
+
+.footer {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 12px;
+    padding: 24px 0 5px;
+}
+
+@media (max-width: 1100px) {
+    .kpi-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 750px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard {
+        padding: 12px;
+    }
+
+    .hero {
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+    }
+
+    .kpi-card {
+        padding: 15px;
+    }
+}

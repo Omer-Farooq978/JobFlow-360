@@ -1,0 +1,10 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/.sf": true,
+    "**/.sfdx": true
+  },
+  "xml.preferences.showSchemaDocumentationType": "none",
+  "salesforcedx-vscode-apex.java.home": "C:\\\\Program Files\\\\Eclipse Adoptium\\\\jdk-21.0.12.101-hotspot"
+}

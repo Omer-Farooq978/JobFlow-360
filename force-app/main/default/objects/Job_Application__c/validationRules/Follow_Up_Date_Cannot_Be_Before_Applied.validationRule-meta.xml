@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Follow_Up_Date_Cannot_Be_Before_Applied</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK(Applied_Date__c)),
+    NOT(ISBLANK(Follow_up_Date__c)),
+    Follow_up_Date__c &lt; Applied_Date__c
+)</errorConditionFormula>
+    <errorDisplayField>Follow_up_Date__c</errorDisplayField>
+    <errorMessage>Follow-up Date cannot be before Applied Date.</errorMessage>
+</ValidationRule>
